@@ -1,7 +1,10 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import './GestionarUsuario.css';
-import { Container,Button } from 'react-bootstrap';
+import { Container,Button,FormGroup } from 'react-bootstrap';
+import { FaPencilAlt, FaTimes } from 'react-icons/fa';
+import Form from 'react-bootstrap/Form'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const data = [
@@ -56,21 +59,28 @@ class GestionarUsuario extends React.Component{
             </p>
 
              <p>
-              <div>
-              <label htmlfor="nombre">Estado:</label>
-              </div>
-              <div>
-              <input type="text" placeholder="Estado" className="mb-4" size="30" />
-              </div>
+             <FormGroup>
+                <div>
+                <label>Estado:</label>
+                </div>
+                <select id="estado" className="btn btn-info dropdown-toggle" >
+                  <option className="btn btn-danger dropdown-toggle" value="Pendiente">Pendiente</option>
+                  <option className="btn btn-success dropdown-toggle" value="Autorizado">Autorizado</option>
+                  <option className="btn btn-file dropdown-toggle" value="No autorizado">No autorizado</option>
+                </select>
+              </FormGroup>
             </p>
 
             <p>
-              <div>
-              <label htmlfor="nombre">Rol:</label>
-              </div>
-              <div>
-              <input type="text" placeholder="Rol" className="mb-4" size="30" />
-              </div>
+              <FormGroup>
+                <div>
+                <label>Rol:</label>
+                </div>
+                <select id="estado" className="btn btn-info dropdown-toggle" >
+                  <option className="btn btn-danger dropdown-toggle" value="Administrador">Administrador</option>
+                  <option className="btn btn-success dropdown-toggle" value="Vendedor">Vendedor</option>
+                </select>
+              </FormGroup>
             </p>
             <div className="button">
             <button type="button"  class="btn btn-success">Registrar usuario</button>
@@ -97,8 +107,8 @@ class GestionarUsuario extends React.Component{
                             <td className="text-center">{elemento.Fecha}</td>
                             <td className="text-center">{elemento.Estado}</td>
                             <td className="text-center">{elemento.Rol}</td>
-                            <td className="text-center"><Button variant="primary">Editar</Button>{" "}
-                            <Button className="text-center" variant="danger">Eliminar</Button></td>
+                            <td className="text-center" ><Button className="text-center" color="primary"><FaPencilAlt /> </Button> 
+                            <Button className="btn btn-danger "color="danger"><FaTimes/></Button></td>
                         </tr>
                     ))}  
               </tbody>
